@@ -1,0 +1,102 @@
+:root {
+  --viola_100: hsl(254, 88%, 90%);
+  --viola_500: hsl(256, 67%, 59%);
+
+  --giallo_100: hsl(31, 66%, 93%);
+  --giallo_500: hsl(39, 100%, 71%);
+
+  --bianco: hsl(0, 0%, 100%);
+  --nero: hsl(0, 0%, 7%);
+}
+html {
+  font-size: 62.5%;
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+img {
+  width: 100%;
+}
+body {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 400;
+  font-size: 1.8rem;
+  color: var(--nero);
+  box-sizing: border-box;
+}
+
+article {
+  display: grid;
+  gap: 3rem;
+}
+
+.grid-item {
+  border: 2px solid black;
+  padding: 2.2rem;
+  border-radius: 10px;
+  display: grid;
+  gap: 2rem;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.grid-item:nth-child(1),
+.grid-item:nth-child(5) {
+  background-color: var(--viola_500);
+}
+.grid-item:nth-child(4) {
+  background-color: var(--viola_100);
+}
+
+.grid-item:nth-child(3),
+.grid-item:nth-child(8) {
+  background-color: var(--giallo_500);
+}
+
+.grid-item:nth-child(2),
+.grid-item:nth-child(6),
+.grid-item:nth-child(7) {
+  background-color: var(--bianco);
+}
+
+.grid-item:nth-child(1),
+.grid-item:nth-child(4),
+.grid-item:nth-child(5),
+.grid-item:nth-child(7) {
+  text-align: center;
+}
+.grid-item:nth-child(1) {
+  padding: 4rem;
+}
+.grid-item:nth-child(4) {
+  padding: 3.5rem 2rem;
+}
+.grid-item:nth-child(2) {
+  padding: 2rem 1rem;
+}
+h3 {
+  font-size: 2.5rem;
+  letter-spacing: -1px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+h2 {
+  font-size: 3.3rem;
+  letter-spacing: -1px;
+  font-weight: 600;
+  line-height: 0.9;
+}
+
+h1 {
+  font-size: 4.5rem;
+  font-weight: 500;
+  color: white;
+  line-height: 1;
+}
