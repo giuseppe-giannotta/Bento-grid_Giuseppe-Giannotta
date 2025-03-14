@@ -37,48 +37,13 @@ article {
 }
 
 .grid-item {
-  border: 2px solid black;
+  border: 1px solid rgb(230, 229, 229);
   padding: 2.2rem;
   border-radius: 10px;
   display: grid;
   gap: 2rem;
   width: 90%;
   margin: 0 auto;
-}
-
-.grid-item:nth-child(1),
-.grid-item:nth-child(5) {
-  background-color: var(--viola_500);
-}
-.grid-item:nth-child(4) {
-  background-color: var(--viola_100);
-}
-
-.grid-item:nth-child(3),
-.grid-item:nth-child(8) {
-  background-color: var(--giallo_500);
-}
-
-.grid-item:nth-child(2),
-.grid-item:nth-child(6),
-.grid-item:nth-child(7) {
-  background-color: var(--bianco);
-}
-
-.grid-item:nth-child(1),
-.grid-item:nth-child(4),
-.grid-item:nth-child(5),
-.grid-item:nth-child(7) {
-  text-align: center;
-}
-.grid-item:nth-child(1) {
-  padding: 4rem;
-}
-.grid-item:nth-child(4) {
-  padding: 3.5rem 2rem;
-}
-.grid-item:nth-child(2) {
-  padding: 2rem 1rem;
 }
 h3 {
   font-size: 2.5rem;
@@ -99,4 +64,156 @@ h1 {
   font-weight: 500;
   color: white;
   line-height: 1;
+}
+
+/*LAYOUT COMUNE ALLE FIGURES*/
+.uno,
+.cinque {
+  background-color: var(--viola_500);
+}
+.quattro {
+  background-color: var(--viola_100);
+}
+
+.tre,
+.otto {
+  background-color: var(--giallo_500);
+}
+
+.due,
+.sei,
+.sette {
+  background-color: var(--bianco);
+}
+.tre figcaption,
+.due figcaption {
+  font-size: 2.5rem;
+  line-height: 1;
+  font-weight: 600;
+  letter-spacing: -1px;
+}
+.uno,
+.quattro,
+.cinque,
+.sette {
+  text-align: center;
+}
+
+/*PRIMA FIGURE*/
+.uno {
+  padding: 3.5rem;
+}
+.uno img {
+  width: 65%;
+}
+.uno span {
+  color: var(--giallo_500);
+}
+.uno figcaption {
+  color: var(--viola_100);
+}
+
+/*SECONDA FIGURE*/
+.due {
+  padding: 2rem 1rem;
+}
+
+/*TERZA FIGURE*/
+.tre {
+  position: relative;
+
+  overflow: hidden;
+  padding: 1.5rem;
+}
+.tre img {
+  width: 65%;
+  position: absolute;
+  bottom: -25px;
+  left: 1.5rem;
+}
+
+/*QUARTA FIGURE*/
+.quattro {
+  padding: 3rem 2rem;
+}
+
+.quattro figcaption {
+  line-height: 1;
+}
+
+/*QUINTA FIGURE*/
+
+.cinque {
+  padding: 2rem 5rem;
+}
+.cinque h2 {
+  color: var(--bianco);
+  font-size: 3rem;
+  font-weight: 500;
+}
+
+/*SESTA FIGURE*/
+.sei h2 {
+  font-size: 4.5rem;
+  margin-bottom: 1.8rem;
+}
+.sei img {
+  width: 65%;
+}
+
+/*SETTIMA FIGURE*/
+.sette h2 {
+  font-size: 3rem;
+  text-align: start;
+}
+.sette span {
+  color: var(--viola_500);
+}
+.sette img {
+  width: 65%;
+}
+
+/*OTTAVA FIGURE*/
+.otto img {
+  width: 75%;
+}
+
+/*MEDIA QUERIES*/
+
+@media (min-width: 1000px) {
+  article {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .uno {
+    order: 2;
+    grid-column: span 2;
+  }
+  .due {
+    order: 5;
+  }
+  .tre {
+    order: 6;
+  }
+  .quattro {
+    order: 3;
+    grid-row: span 2;
+  }
+  .cinque {
+    order: 8;
+    grid-column: span 2;
+    display: flex;
+    width: 100%; /* Occupa l'intera larghezza delle due celle */
+    justify-content: center; /* (opzionale) centra il contenuto dentro il box */
+  }
+  .sei {
+    order: 7;
+  }
+  .sette {
+    order: 1;
+  }
+  .otto {
+    order: 4;
+    grid-row: span 2;
+  }
 }
