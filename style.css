@@ -22,6 +22,7 @@ html {
 
 img {
   width: 100%;
+  display: block;
 }
 body {
   font-family: "DM Sans", sans-serif;
@@ -29,6 +30,9 @@ body {
   font-size: 1.8rem;
   color: var(--nero);
   box-sizing: border-box;
+  background-color: rgba(245, 245, 245, 255);
+  padding: 2rem;
+  margin: 0 auto;
 }
 
 article {
@@ -38,13 +42,12 @@ article {
 
 .grid-item {
   border: 1px solid rgb(230, 229, 229);
-  padding: 2.2rem;
+  padding: 2rem;
   border-radius: 10px;
   display: grid;
-  gap: 2rem;
-  width: 90%;
-  margin: 0 auto;
+  gap: 1.5rem;
 }
+
 h3 {
   font-size: 2.5rem;
   letter-spacing: -1px;
@@ -80,7 +83,6 @@ h1 {
   background-color: var(--giallo_500);
 }
 
-.due,
 .sei,
 .sette {
   background-color: var(--bianco);
@@ -101,10 +103,11 @@ h1 {
 
 /*PRIMA FIGURE*/
 .uno {
-  padding: 3.5rem;
+  padding: 3rem;
 }
 .uno img {
-  width: 65%;
+  width: 50%;
+  margin: 0 auto;
 }
 .uno span {
   color: var(--giallo_500);
@@ -116,20 +119,29 @@ h1 {
 /*SECONDA FIGURE*/
 .due {
   padding: 2rem 1rem;
+  background-color: rgba(255, 255, 255, 255);
+}
+.due img {
+  border-radius: 32px;
+  box-shadow: 5px 5px 15px #f9f7fa;
 }
 
 /*TERZA FIGURE*/
 .tre {
   position: relative;
-
   overflow: hidden;
-  padding: 1.5rem;
+  gap: 0;
+}
+
+.tre figcaption {
+  font-size: 3rem;
+  margin-bottom: 0;
 }
 .tre img {
-  width: 65%;
-  position: absolute;
-  bottom: -25px;
-  left: 1.5rem;
+  width: 70%;
+  position: relative;
+  top: 4rem;
+  margin-top: -2.5rem;
 }
 
 /*QUARTA FIGURE*/
@@ -139,12 +151,19 @@ h1 {
 
 .quattro figcaption {
   line-height: 1;
+  font-size: 1.8rem;
+  font-weight: 500;
 }
 
 /*QUINTA FIGURE*/
 
 .cinque {
   padding: 2rem 5rem;
+}
+.cinque img {
+  width: 80%;
+  margin: 0 auto;
+  padding-bottom: 1.5rem;
 }
 .cinque h2 {
   color: var(--bianco);
@@ -158,10 +177,18 @@ h1 {
   margin-bottom: 1.8rem;
 }
 .sei img {
-  width: 65%;
+  width: 60%;
+}
+
+.order_zero {
+  display: grid;
+  gap: 3rem;
 }
 
 /*SETTIMA FIGURE*/
+.sette {
+  background-color: #faeee2;
+}
 .sette h2 {
   font-size: 3rem;
   text-align: start;
@@ -170,50 +197,175 @@ h1 {
   color: var(--viola_500);
 }
 .sette img {
-  width: 65%;
+  width: 50%;
 }
 
 /*OTTAVA FIGURE*/
 .otto img {
-  width: 75%;
+  width: 60%;
 }
 
 /*MEDIA QUERIES*/
-
-@media (min-width: 1000px) {
+@media (min-width: 500px) {
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
   article {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    grid-template-areas:
+      "social_media social_media"
+      "manage_multiple mantain_consistent "
+      "order_zero cinquantasei"
+      "order_zero schedule"
+      "grow_followers grow_followers";
   }
   .uno {
-    order: 2;
-    grid-column: span 2;
+    grid-area: social_media;
   }
   .due {
-    order: 5;
+    grid-area: manage_multiple;
   }
   .tre {
-    order: 6;
-  }
-  .quattro {
-    order: 3;
-    grid-row: span 2;
-  }
-  .cinque {
-    order: 8;
-    grid-column: span 2;
-    display: flex;
-    width: 100%; /* Occupa l'intera larghezza delle due celle */
-    justify-content: center; /* (opzionale) centra il contenuto dentro il box */
+    grid-area: mantain_consistent;
   }
   .sei {
-    order: 7;
+    grid-area: cinquantasei;
   }
-  .sette {
-    order: 1;
+  .order_zero {
+    grid-area: order_zero;
   }
-  .otto {
-    order: 4;
-    grid-row: span 2;
+
+  .quattro {
+    grid-area: schedule;
+  }
+  .cinque {
+    grid-area: grow_followers;
+  }
+  .cinque {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: start;
+    padding: 2rem;
+    gap: 4rem;
+  }
+  .cinque img {
+    width: 40%;
+  }
+}
+
+@media (min-width: 900px) {
+  article {
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 1120px;
+    grid-template-areas:
+      "order_zero social_media social_media schedule"
+      "order_zero manage_multiple mantain_consistent schedule "
+      "order_zero cinquantasei grow_followers grow_followers";
+  }
+
+  .order_zero {
+    grid-area: order_zero;
+    align-content: stretch; /* Espande le figure per occupare tutto lo spazio */
+  }
+
+  /*LAYOUT COMUNE ALLE FIGURES*/
+  .sette,
+  .otto h2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .sette h2,
+  .otto h2 {
+    font-size: 3.9rem;
+  }
+
+  h1 {
+    font-size: 6rem;
+  }
+
+  /*PRIMA FIGURE*/
+  .uno {
+    padding: 5rem;
+  }
+  .uno h2 {
+    font-size: 5rem;
+  }
+  .uno img {
+    width: 40%;
+  }
+  /*SECONDA FIGURE*/
+
+  .due figcaption {
+    font-size: 3.5rem;
+  }
+  .due img {
+    width: 100%;
+  }
+  /*TERZA FIGURE*/
+
+  .tre img {
+    width: 100%;
+    top: 10rem;
+    margin-top: -8.5rem;
+  }
+  /*QUARTA FIGURE*/
+  .quattro {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas: "accadue" "image" "image" "image" "image" "image" "image" "image" "figcaption";
+    padding: 3rem 0 3rem 2rem;
+  }
+
+  .quattro img {
+    height: 100%;
+    object-fit: cover;
+    object-position: left top;
+    width: 100%;
+    position: relative;
+    grid-area: image;
+    left: 0;
+    right: -2rem;
+  }
+  .quattro h3 {
+    font-size: 3.5rem;
+    text-align: start;
+    grid-area: accadue;
+  }
+  .quattro figcaption {
+    text-align: start;
+    grid-area: figcaption;
+  }
+  /*QUINTA FIGURE*/
+
+  .cinque img {
+    width: 40%;
+    padding: 0;
+  }
+  .cinque h2 {
+    font-size: 4rem;
+  }
+  /*SESTA FIGURE*/
+
+  .sei h2 {
+    font-size: 6rem;
+  }
+  .sei img {
+    width: 80%;
+  }
+
+  /*SETTIMA FIGURE*/
+  .sette img {
+    width: 85%;
+  }
+  /*OTTAVA FIGURE*/
+  .otto img {
+    width: 100%;
   }
 }
